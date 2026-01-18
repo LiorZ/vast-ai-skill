@@ -1,50 +1,26 @@
-# Vast.ai CLI Skills
+# Vast.ai CLI Skill
 
-This repository contains AI agent skill documentation for working with the Vast.ai CLI.
+This repository contains the `vast-ai-cli` skill for interacting with the Vast.ai CLI. It provides structured guidance for search, provisioning, management, data transfer, and troubleshooting.
 
-## What’s inside
+## What's inside
 
-- A comprehensive skill file at `.claude/vast-ai-skill.md`
-- Usage guidance for searching offers, creating/destroying instances, volumes, data transfer, and auth
-- Practical command examples and error-handling notes for agent workflows
+- `vast-ai-cli/SKILL.md`: the skill definition and workflow guidance
+- `vast-ai-cli/references/vast-cli.md`: command reference and examples
+- `vast-ai-cli.skill`: packaged skill archive for distribution
 
-## Quick start
+## Using the skill
 
-Install the Vast.ai CLI:
+If you need the Vast.ai CLI itself:
 
 ```bash
 pip install vastai
-```
-
-Set your API key:
-
-```bash
 vastai set api-key YOUR_API_KEY
 ```
 
-## Example commands
+## Packaging
+
+The packaged skill is already built as `vast-ai-cli.skill`. To rebuild:
 
 ```bash
-# Search for GPU instances
-vastai search offers 'gpu_ram>=24 reliability>0.95'
-
-# Create an instance
-vastai create instance OFFER_ID --image pytorch/pytorch:latest --jupyter --direct
-
-# List your instances
-vastai show instances
-
-# Destroy an instance
-vastai destroy instance INSTANCE_ID
+python /Users/liorz/.codex/skills/.system/skill-creator/scripts/package_skill.py vast-ai-cli .
 ```
-
-## Repository layout
-
-- `SKILLS.md`: catalog and overview
-- `.claude/vast-ai-skill.md`: full skill documentation
-
-## Contributing
-
-1. Edit files under `.claude/`
-2. Keep the format consistent
-3. Add examples and error cases where useful
